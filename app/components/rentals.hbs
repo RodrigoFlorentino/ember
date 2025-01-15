@@ -6,6 +6,11 @@
     </label>
     <p>The results below will update as you type.</p>
   </form>
+
+  {{#if this.loadRentals.isRunning}}
+  <p>Loading...</p>
+  {{else}}
+
   <ul class="results">
     <Rentals::Filter @rentals={{@rentals}} @query={{this.query}} as |results|>
       {{#each results as |rental|}}
@@ -15,4 +20,7 @@
       {{/each}}
     </Rentals::Filter>
   </ul>
+
+  {{/if}}
+
 </div>
